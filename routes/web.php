@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ChatGptIndexController;
 use App\Http\Controllers\ChatGptStoreController;
+use App\Http\Controllers\ChatGptDestroyController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -27,6 +28,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/chat/{id?}', ChatGptIndexController::class)->name('chat.show');
     Route::post('/chat/{id?}', ChatGptStoreController::class)->name('chat.store');
+    Route::delete('/chat/{id?}', ChatGptDestroyController::class)->name('chat.destroy');
 });
 
 require __DIR__.'/auth.php';
